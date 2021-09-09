@@ -1,0 +1,45 @@
+.main {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 120px;
+}
+.paragraph {
+  color: red;
+  margin: 0;
+}
+.username {
+  padding: 10px;
+  background-color: rgb(190, 178, 178);
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  margin-top: 10px;
+  outline: none;
+}
+.username::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+.bio {
+  padding: 10px;
+  background-color: rgb(190, 178, 178);
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  margin-top: 10px;
+  outline: none;
+}
+.bio::placeholder {
+  color: white;
+  opacity: 1;
+}
+.submit {
+  width: 100%;
+  padding: 8px;
+  color: white;
+  background-color: rgb(172, 19, 19);
+  border: none;
+}
