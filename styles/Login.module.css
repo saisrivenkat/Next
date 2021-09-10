@@ -43,3 +43,9 @@
   background-color: rgb(172, 19, 19);
   border: none;
 }
+.active {
+  background-color: rgb(158, 28, 28) !important;
+}
+.active span {
+  color: white;
+}
