@@ -8,18 +8,23 @@ export default function Interests() {
 
     const handleinterest = (name, id) => {
         Interest[id].selected = !Interest[id].selected
-        console.log(Interest)
-        if (Interest[id].selected) {
-            setselected([...selected, { name: Interest[id].name }])
+        const index = selected.indexOf(name);
+        console.log(name)
+        if (index < 0) {
+            setselected([...selected, Interest[id].name])
+        }
+        else {
+            selected.splice(index, 1);
         }
         console.log(selected)
     }
     useEffect(() => {
-
-    }, [Interest])
+        card();
+        console.log("saii")
+    }, [selected])
     const allint = (int, id) => {
         return (
-            <div key={id} className={"item mb-1 " + (int.selected === true ? login.active : null)} style={{ backgroundColor: "silver", padding: "8px", margin: "10px", borderRadius: "10px" }} onClick={() => handleinterest(int.name, id)}>
+            <div key={id} className={"item mb-1 " + (int.selected === true ? login.active : login.normal)} onClick={() => handleinterest(int.name, id)}>
                 <span>{int.name}</span>
 
             </div>
@@ -29,10 +34,10 @@ export default function Interests() {
 
         console.log(selected)
     }
-    return (
-        <div className={login.main} >
+    const card = () => {
+        return (
             <Card style={{ width: 400 }}>
-                <div style={{ textAlign: "center",marginBottom:"10px" }}>
+                <div style={{ textAlign: "center", marginBottom: "10px" }}>
                     <h1>Choose Interests</h1>
                     <div style={{ display: "flex", flexWrap: "wrap" }}>
                         {Interest.map((int, id) =>
@@ -41,7 +46,14 @@ export default function Interests() {
                     </div>
                 </div>
                 <button className={login.submit} onClick={() => submit()}>Submit</button>
+                {selected.length ? selected.map(li => <h1>{li}</h1>) : null}
             </Card>
+        )
+    }
+    return (
+        <div className={login.main} >
+            {card()}
+            <h1>saii</h1>
         </div>
     )
 }
